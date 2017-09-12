@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Shop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Shop</h2>
+        <div>
+            <p><select id="selCategories">
+                    <option disabled selected >Categories</option>
+                </select></p>
+
+            <p><select id="selSize">
+                    <option disabled selected >Size</option>
+                </select></p>
+        </div>
+
+        <script>
+            function Clothes()
+            {
+                this.selFunc = function ()
+                {
+                    var optCategories = document.createElement('option');
+                    optCategories.className = "option";
+                    var option = this.option;
+                    optCategories.innerHTML = option;
+
+                    var select = selCategories;
+                    select.appendChild(optCategories);
+                }
+            }
+
+            var obj = new Clothes();
+            var arr = {
+                select: "selCategories",
+                option: [
+                    "Shirt",
+                    "Pullover",
+                    "Cap"
+                ]
+            }
+//            console.log(arr.select.length);
+            for (var i = 0; i < arr.option.length; i++) {
+//                console.log(arr.select);
+                obj.option = arr.option[i];
+                obj.select = arr.select;
+                obj.selFunc();
+            }
+
+        </script>
+    </body>
+</html>
