@@ -28,27 +28,47 @@
                     var option = this.option;
                     optCategories.innerHTML = option;
 
-                    var select = selCategories;
-                    select.appendChild(optCategories);
+                    var select = this.select;
+                    console.log("select="+select);
+                    select(optCategories);
                 }
             }
 
             var obj = new Clothes();
-            var arr = {
-                select: "selCategories",
-                option: [
+            var arr = [
+                "selCategories",
+                [
                     "Shirt",
                     "Pullover",
                     "Cap"
+                ],
+                "selSize",
+                [
+                    "M",
+                    "L",
+                    "XL"
                 ]
-            }
+            ];
 //            console.log(arr.select.length);
-            for (var i = 0; i < arr.option.length; i++) {
-//                console.log(arr.select);
-                obj.option = arr.option[i];
-                obj.select = arr.select;
-                obj.selFunc();
-            }
+//            for (var i = 0; i < arr.option.length; i++) {
+////                console.log(arr.select);
+//                obj.option = arr.option[i];
+//                obj.select = arr.select;
+//                obj.selFunc();
+//            }
+
+            for (var i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+                if (arr[i] == "selCategories") {
+                obj.select = arr[i]+".appendChild(optCategories)";
+                i = i + 1;
+                    for (var j = 0; j < arr[i].length; j++) {
+                        console.log(arr[i][j]);
+                        obj.option = arr[i][j];
+                        obj.selFunc();
+                    }
+                }
+            };
 
         </script>
     </body>
