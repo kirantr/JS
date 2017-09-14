@@ -164,10 +164,18 @@
 
             });
 
-//            selColor.addEventListener('click', function ()
-//            {
+            selColor.addEventListener('change', function ()
+            {
+                for (var i = 0; i < selColor.options.length; i++) {
+                    var option = selColor.options[i];
+                    if(option.selected) {
+                        var opVal = option.value;
+                     alert( opVal );
+                     }
+                }
+//                selColor.addEventListener('onchange', function ()
 //                var col = selColor.value;
-//            });
+            });
 
             for (var n = 0; n < arrCaps.length; n++) {
 //                if (arrCaps[n].color == col) {
