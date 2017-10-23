@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <script src="./lib/angular/angular.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body> Hello Guys
+
+    <div ng-init="text='Hello World'">
+        {{text}}
+    </div>
+
+    <div ng-init="list=['Hello',  'World', 'ghj']">
+
+    </div>
+
+    <div>
+        <input ng-model="searchList" type="text" name="name" />
+    </div>
+    <div>
+        <ul>
+            <li ng-repeat="li in list | filter:searchList">{{li}}</li>
+        </ul>
+    </div>
+
+    <div ng-controller="SettingsController1 as settings">
+        {{name}} {{settings.name}}
+        <div ng-controller="SettingsController2 as settings2">
+            {{name}}
+        </div>
+
+    </div>
+
+    <div ng-controller="SettingsController1 as settings">
+        <input type="text" ng-model="fname">
+        <input type="button" ng-click="settings.addName(fname)">
+        <ul>
+            <li ng-repeat="name in settings.names track by $index">{{name}}</li>
+        </ul>
+    </div>
+</body>
+
+</html>
