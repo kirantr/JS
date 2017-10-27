@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Forms-async-validation</title>
+
+
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+  <script src="script.js"></script>
+
+
+
+</head>
+
+<body ng-app="form-example1">
+  <form name="form" class="css-form" novalidate>
+
+    <div>
+      <label>
+        Username:
+        <input type="text" ng-model="name" name="name" username />{{name}}</label>
+      <br />
+      <span ng-show="form.name.$pending.username" style="color:blue">This name is invalid</span>
+      <span ng-show="form.name.$error.username" style="color:red">This name is valid</span>
+    </div>
+
+  </form>
+</body>
+
+</html>
